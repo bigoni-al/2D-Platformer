@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mover : MonoBehaviour
@@ -9,8 +7,9 @@ public class Mover : MonoBehaviour
     public float Speed => _speed;
 
     public void Move(float direction)
-    { 
+    {
+        direction = Mathf.Abs(direction);
         float distance = direction * _speed * Time.deltaTime;
-        transform.Translate(distance * Vector2.right);         
+        transform.Translate(distance * Vector2.right);
     }
 }

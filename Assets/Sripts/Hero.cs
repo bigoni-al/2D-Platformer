@@ -13,6 +13,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private bool _isGrounded;
+    private readonly int IsRuning = Animator.StringToHash(nameof(IsRuning));
 
     private void OnEnable()
     {
@@ -50,7 +51,7 @@ public class Hero : MonoBehaviour
         {     
             _mover.Move(direction);
             _turner.TryTurn(direction);
-            _animator.SetBool("IsRuning", true);
+            _animator.SetBool(IsRuning, true);
         }    
     }
 
@@ -59,12 +60,12 @@ public class Hero : MonoBehaviour
         if (_isGrounded) 
         {
             _jumper.Jump(direction, _mover.Speed);
-            _animator.SetBool("IsRuning", false);
+            _animator.SetBool(IsRuning, false);
         }
     }
 
     private void StopRunningAnimation() 
     {
-        _animator.SetBool("IsRuning", false);
+        _animator.SetBool(IsRuning, false);
     }
 }

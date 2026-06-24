@@ -1,26 +1,30 @@
 using UnityEngine;
 
 public class Turner : MonoBehaviour
-{   
+{
     private bool _isLookRight = true;
-    private SpriteRenderer _renderer;
+    private float _angleTurnRight = 0f;
+    private float _angleTurnLeft = 180f;
 
-    private void Awake()
-    {
-        _renderer = GetComponent<SpriteRenderer>();
-    }
-
-    public void TryTurn(float direction) 
+    public void TryTurn(float direction)
     {
         if (_isLookRight == true && direction < 0)
         {
             _isLookRight = false;
-            _renderer.flipX = true;
+            Turn(_angleTurnLeft);
+
         }
-        else if(_isLookRight == false && direction > 0)
+        else if (_isLookRight == false && direction > 0)
         {
             _isLookRight = true;
-            _renderer.flipX = false;
-        }    
+            Turn(_angleTurnRight);
+        }
+    }
+
+    private void Turn(float rotationY)
+    {
+        Vector3 rotation = transform.eulerAngles;
+        rotation.y = rotationY;
+        transform.rotation = Quaternion.Euler(rotation);
     }
 }
