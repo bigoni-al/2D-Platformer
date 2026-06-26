@@ -6,10 +6,9 @@ public class InputReader : MonoBehaviour
     private const string Horizontal = nameof(Horizontal);
 
     public event Action<float> MovementAppointed;
-    public event Action MovementSpopped;
     public event Action<float> JumpAppointed;
     
-    void Update()
+    private void Update()
     {
         ReadMovement();
         ReadJump();
@@ -21,10 +20,6 @@ public class InputReader : MonoBehaviour
         {
             float direction = Input.GetAxis(Horizontal);
             MovementAppointed?.Invoke(direction);
-        }
-        else 
-        {
-            MovementSpopped?.Invoke();
         }
     }
 
