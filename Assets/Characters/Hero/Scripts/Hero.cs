@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Jumper))]
 [RequireComponent(typeof(Turner))]
+[RequireComponent(typeof(Bag))]
+[RequireComponent(typeof(HeroRenderer))]
 public class Hero : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;

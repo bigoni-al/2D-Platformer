@@ -10,7 +10,7 @@ public class Patrol : MonoBehaviour
 
     public float Direction => _direction;
 
-    public void CheckDirection(Vector2 position)
+    public void TryChangeDirection(Vector2 position)
     {
         if (_waypoints[_currentIndexWaypoint].transform.position.x < position.x && _direction > 0 ||
             _waypoints[_currentIndexWaypoint].transform.position.x > position.x && _direction < 0)

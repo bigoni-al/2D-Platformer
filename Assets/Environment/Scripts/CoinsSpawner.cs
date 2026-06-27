@@ -15,13 +15,13 @@ public class CoinsSpawner : MonoBehaviour
         foreach (Transform pointSpawnCoin in _pointsSpawnCoins) 
         {
             Coin newCoin = Instantiate(_coinPrefab, pointSpawnCoin.position, Quaternion.identity);
-            newCoin.CoinPicked += DestroyCoin;
+            newCoin.ResourcePicked += DestroyCoin;
         }
     }
 
     private void DestroyCoin(Coin coin) 
     {
-        coin.CoinPicked -= DestroyCoin;
+        coin.ResourcePicked -= DestroyCoin;
         Destroy(coin.gameObject);
     }
 }

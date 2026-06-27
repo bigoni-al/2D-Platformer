@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        _patrol.CheckDirection(transform.position);
-        _mover.Move(_patrol.Direction);
+        _patrol.TryChangeDirection(transform.position);
         _turner.TryTurn(_patrol.Direction);
+        _mover.Move(_patrol.Direction);    
     }
 }

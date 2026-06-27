@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public event Action<Coin> CoinPicked;
+    [SerializeField] private Coin _coin;
 
-    public void LaunchDestroy(Coin coin) 
+    public event Action<Coin> ResourcePicked;
+
+    public void ReportStatus() 
     {
-        CoinPicked?.Invoke(coin);
+        ResourcePicked?.Invoke(_coin);
     }
 }

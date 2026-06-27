@@ -6,7 +6,7 @@ public class Bag : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Coin coin))
         {
-            coin.LaunchDestroy(coin);
+            coin.ReportStatus();
         }
     }
 }
